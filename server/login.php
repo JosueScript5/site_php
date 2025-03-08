@@ -1,5 +1,12 @@
 <?php
 include('supabase.php');
+
+// Définir la durée de vie de la session à 1 an (en secondes)
+$oneYear = 365 * 24 * 60 * 60;
+ini_set('session.gc_maxlifetime', $oneYear);
+session_set_cookie_params($oneYear);
+
+// Démarrer la session après la configuration
 session_start();
 
 $message = ""; // Initialisation du message
@@ -25,12 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $result[0];
             
             if (password_verify($password, $user['password'])) {
-                // Mot de passe correct, création de la session
+                // Mot de passe correct, création de la session avec durée de 1 an
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_nom'] = $user['nom'];
                 $_SESSION['user_prenom'] = $user['prenom'];
                 $_SESSION['user_telephone'] = $user['telephone'];
-                
+
                 // Redirection vers board.php
                 header("Location: board.php");
                 exit();
@@ -42,4 +49,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-

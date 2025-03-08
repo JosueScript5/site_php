@@ -3,7 +3,6 @@
 <div class="container p-4">
     <div class="row justify-content-center">
         <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
-            <?php if (!empty($message)) echo $message; ?>
             <h2>Créer un compte</h2>
             <form method="POST" id="registerForm">
                 <div class="mb-3">
