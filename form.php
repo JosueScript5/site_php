@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 shadow p-3 mb-5 bg-white rounded">
         <?php if (!empty($message)) echo $message; ?>
-            <h2>Enregistrer un musicien</h2>
+            <h2>Enregistrer un utilisateur</h2>
             <form method="POST">
                 <div class="mb-3">
                     <label for="nom" class="form-label">Nom</label>
